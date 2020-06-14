@@ -7,15 +7,24 @@
 3.flask
     ps：对象() 执行的是对象的__call__方法
 """
-from flask import Flask
+from flask import Flask, request, render_template
 
 # 实例化flask对象
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/', methods=['get', 'post'])
 def hello_world():
-    return 'hello world!'
+    msg = ""
+    username = request.form.get("username")
+    password = request.form.get("password")
+    if username == 'jock' and password == '123':
+        msg = "登录成功"
+    elif username is None and password is None:
+        msg = ""
+    else:
+        msg = "账户或密码错误"
+    return render_template("login.html", message=msg)
 
 
 if __name__ == '__main__':
