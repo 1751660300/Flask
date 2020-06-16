@@ -7,15 +7,17 @@
  c. app.config.from_pyfile("filename")
  d. app.config.from_object("filename.类名")
 """
-from flask import Flask
+from flask import Flask, session
 
 app = Flask(__name__)
-app.config.from_object("setting.config")
+app.config.from_pyfile("templates/setting.py")
+# app.config.from_object("templates.setting.config")
 
 
 @app.route('/', methods=['post', 'get'])
 def login():
-    pass
+    session["q"] = "123"
+    return "hello world"
 
 
 if __name__ == '__main__':
