@@ -20,7 +20,7 @@
                             如果为False：http://127.0.0.1:5000/index 和http://127.0.0.1:5000/index/ 均可访问
                             如果为True http://127.0.0.1:5000/index 可以访问
     redirect_to=None : 重定向到指定url
-    subdomain
+
 4.常用的路径
     @app.route('/user/<username>')  传递字符串
     @app.route('/user/<int:id>')  传递整数
