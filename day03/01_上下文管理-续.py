@@ -22,15 +22,16 @@ from functools import partial
 from itertools import chain
 
 
-def fun(a, b, c):
+def fun1(a, b, c):
     print(a, b, c)
 
 
-new_fun = partial(fun, 123)
+# 偏函数就是预先传递一个函数1的若干个参数，反回一个新的函数2，函数2只需要传递函数1剩余的参数
+new_fun = partial(fun1, 123)
 a = [1, 2, 3]
 b = [1, 2, 3]
 # 将两个列表连接起来
 c = chain(a, b)
 print(list(c))
-app = Flask(__name__)
-app.run()
+# app = Flask(__name__)
+# app.run()
